@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.mytest.dao.MyTestDao">
+	<select id="selectMyTestAll" resultType="com.bootdo.mytest.entity.MyTest">
+		select * from mytest
+		<where>
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="xname != null and xname != ''">
+				<bind name="pattern" value="'%'+xname+'%'"/>
+				and xname like #{pattern} </if>
+			<if test="age != null and age != ''"> and age = #{age} </if>
+		</where>
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>
+				order by id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="getCount" resultType="int">
+		select count(*) from mytest
+		<where>
+			<if test="id != null and id != ''"> and id = #{id} </if>
+			<if test="xname != null and xname != ''">
+				<bind name="pattern" value="'%'+xname+'%'"/>
+				and xname like #{pattern} </if>
+			<if test="age != null and age != ''"> and age = #{age} </if>
+		</where>
+	</select>
+	<insert id="save" parameterType="com.bootdo.mytest.entity.MyTest" useGeneratedKeys="true" keyProperty="id">
+		insert into mytest(`id`,`xname`,`age`,`deptId`,`deptName`)
+		values(#{id},#{xname},#{age},#{deptId},#{deptName})
+	</insert>
+
+	<insert id="savec" parameterType="com.bootdo.mytest.entity.MClass" useGeneratedKeys="true" keyProperty="id">
+		insert into myclass(`testInput`,`testSort`,`testTextarea`,`testSelect`,`testSelectMultiple`,`testRadio`,`testCheckbox`,`testDate`,`mid`)
+		values
+		(
+			#{testInput},
+			#{testSort},
+			#{testTextarea},
+			#{testSelect},
+			#{testSelectMultiple},
+			#{testRadio},
+			#{testCheckbox},
+			#{testDate},
+			#{mid}
+		)
+	</insert>
+
+
+	<select id="getMyTestById" parameterType="java.lang.Long" resultType="com.bootdo.mytest.entity.MyTest">
+		select * from mytest where id = #{id}
+	</select>
+	<update id="update" parameterType="com.bootdo.mytest.entity.MyTest" useGeneratedKeys="true" keyProperty="id">
+		update mytest
+		<set>
+			<if test="xname != null">`xname` = #{xname}, </if>
+			<if test="age != null">`age` = #{age}, </if>
+		</set>
+		where id = #{id}
+	</update>
+	<delete id="remove" parameterType="java.lang.Long">
+			delete from mytest where id = #{id}
+	</delete>
+
+
+	<select id="selectMClassAll" resultType="com.bootdo.mytest.entity.MClass">
+		select * from myclass
+		<where>
+			<if test="mid != null and mid != ''"> and mid = #{mid} </if>
+			<if test="testInput != null and testInput != ''">
+				<bind name="pattern" value="'%'+testInput+'%'"/>
+				and testInput like #{pattern} </if>
+		</where>
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>
+				order by id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="getMCount" resultType="int">
+		select count(*) from myclass
+		<where>
+			<if test="mid != null and mid != ''"> and mid = #{mid} </if>
+			<if test="testInput != null and testInput != ''">
+				<bind name="pattern" value="'%'+testInput+'%'"/>
+				and testInput like #{pattern} </if>
+		</where>
+	</select>
+	<select id="getMClist" parameterType="int" resultType="com.bootdo.mytest.entity.MClass">
+		select * from myclass where mid=#{id}
+
+	</select>
+	<select id="getMaxId" resultType="int">
+		select Max(id) from myclass
+	</select>
+	<update id="updateMC" parameterType="com.bootdo.mytest.entity.MClass" useGeneratedKeys="true" keyProperty="id">
+		update myclass
+		<set>
+			<if test="testInput != null">`testInput` = #{testInput}, </if>
+			<if test="testSort != null">`testSort` = #{testSort}, </if>
+			<if test="testTextarea != null">`testTextarea` = #{testTextarea}, </if>
+			<if test="testSelect != null">`testSelect` = #{testSelect}, </if>
+			<if test="testSelectMultiple != null">`testSelectMultiple` = #{testSelectMultiple}, </if>
+			<if test="testRadio != null">`testRadio` = #{testRadio}, </if>
+			<if test="testCheckbox != null">`testCheckbox` = #{testCheckbox}, </if>
+			<if test="testDate != null">`testDate` = #{testDate}, </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<insert id="savet"  parameterType="com.bootdo.mytest.entity.MyTeacher" useGeneratedKeys="true" keyProperty="id">
+		insert into myteacher(`tname`,`tage`,`tsex`,`tstartdate`,`tenddate`,`mid`)
+		values
+		(
+		#{tname},
+		#{tage},
+		#{tsex},
+		#{tstartdate},
+		#{tenddate},
+		#{mid}
+		)
+	</insert>
+	<select id="findMyTeacher" resultType="com.bootdo.mytest.entity.MyTeacher">
+		select * from myteacher
+		<where>
+			<if test="mid != null and mid != ''"> and mid = #{mid} </if>
+			<if test="tname != null and tname != ''">
+				<bind name="pattern" value="'%'+tname+'%'"/>
+				and tname like #{pattern} </if>
+		</where>
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>
+				order by id desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="getCount1" resultType="int">
+		select count(*) from myteacher
+		<where>
+			<if test="mid != null and mid != ''"> and mid = #{mid} </if>
+			<if test="tname != null and tname != ''">
+				<bind name="pattern" value="'%'+tname+'%'"/>
+				and tname like #{pattern} </if>
+		</where>
+	</select>
+	<update id="updateMT" parameterType="com.bootdo.mytest.entity.MyTeacher" useGeneratedKeys="true" keyProperty="id">
+		update myteacher
+		<set>
+			<if test="tname != null">`tname` = #{tname}, </if>
+			<if test="tage != null">`tage` = #{tage}, </if>
+			<if test="tsex != null">`tsex` = #{tsex}, </if>
+			<if test="tstartdate != null">`tstartdate` = #{tstartdate}, </if>
+			<if test="tenddate != null">`tenddate` = #{tenddate}, </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="removeTable1" parameterType="java.lang.Long">
+		delete from myclass where id = #{id}
+	</delete>
+	<delete id="removeTable2" parameterType="java.lang.Long">
+		delete from myteacher where id = #{id}
+	</delete>
+	<delete id="removeTable11" parameterType="java.lang.Long">
+		delete from myclass where mid = #{id}
+	</delete>
+	<delete id="removeTable22" parameterType="java.lang.Long">
+		delete from myteacher where mid = #{id}
+	</delete>
+</mapper>

@@ -1,0 +1,782 @@
+2018-04-10 14:10:12 -Starting BootdoApplication on DESKTOP-ELB20L4 with PID 16992 (C:\Users\10892\Desktop\bootdo\bootdo\target\classes started by 10892 in C:\Users\10892\Desktop\bootdo\bootdo)
+2018-04-10 14:10:12 -Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-10 14:10:12 -The following profiles are active: dev
+2018-04-10 14:10:18 -ApplicationContext registed-->org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f736069: startup date [Tue Apr 10 14:10:13 CST 2018]; root of context hierarchy
+2018-04-10 14:10:24 -==>  Preparing: select `id`,`cron_expression`,`method_name`,`is_concurrent`,`description`,`update_by`,`bean_class`,`create_date`,`job_status`,`job_group`,`update_date`,`create_by`,`spring_bean`,`job_name` from sys_task order by id desc 
+2018-04-10 14:10:24 -==> Parameters: 
+2018-04-10 14:10:24 -<==      Total: 1
+2018-04-10 14:10:24 -Started BootdoApplication in 12.467 seconds (JVM running for 13.518)
+2018-04-10 14:11:03 -请求地址 : http://localhost/
+2018-04-10 14:11:03 -HTTP METHOD : GET
+2018-04-10 14:11:03 -CLASS_METHOD : com.bootdo.system.controller.LoginController.welcome
+2018-04-10 14:11:03 -参数 : [{}]
+2018-04-10 14:11:03 -耗时 : 1
+2018-04-10 14:11:03 -返回值 : redirect:/blog
+2018-04-10 14:11:03 -请求地址 : http://localhost/blog
+2018-04-10 14:11:03 -HTTP METHOD : GET
+2018-04-10 14:11:03 -CLASS_METHOD : com.bootdo.blog.controller.BlogController.blog
+2018-04-10 14:11:03 -参数 : []
+2018-04-10 14:11:03 -耗时 : 0
+2018-04-10 14:11:03 -返回值 : blog/index/main
+2018-04-10 14:11:03 -请求地址 : http://localhost/blog/open/list
+2018-04-10 14:11:03 -HTTP METHOD : GET
+2018-04-10 14:11:03 -CLASS_METHOD : com.bootdo.blog.controller.BlogController.opentList
+2018-04-10 14:11:03 -参数 : [{type=article, limit=10, offset=0}]
+2018-04-10 14:11:03 -==>  Preparing: select `cid`,`title`,`slug`,`created`,`modified`,`content`,`type`,`tags`,`categories`,`hits`,`comments_num`,`allow_comment`,`allow_ping`,`allow_feed`,`status`,`author`,`gtm_create`,`gtm_modified` from blog_content WHERE type = ? order by cid desc limit 0, 10 
+2018-04-10 14:11:03 -==> Parameters: article(String)
+2018-04-10 14:11:03 -<==      Total: 10
+2018-04-10 14:11:03 -==>  Preparing: select count(*) from blog_content WHERE type = ? 
+2018-04-10 14:11:03 -==> Parameters: article(String)
+2018-04-10 14:11:03 -<==      Total: 1
+2018-04-10 14:11:03 -耗时 : 43
+2018-04-10 14:11:03 -返回值 : com.bootdo.common.utils.PageUtils@16c913f2
+2018-04-10 14:11:05 -请求地址 : http://localhost/login
+2018-04-10 14:11:05 -HTTP METHOD : GET
+2018-04-10 14:11:05 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2018-04-10 14:11:05 -参数 : []
+2018-04-10 14:11:05 -耗时 : 1
+2018-04-10 14:11:05 -返回值 : login
+2018-04-10 14:11:07 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+2018-04-10 14:11:07 -==> Parameters: admin(String)
+2018-04-10 14:11:07 -<==      Total: 1
+2018-04-10 14:11:07 -请求地址 : http://localhost/login
+2018-04-10 14:11:07 -HTTP METHOD : POST
+2018-04-10 14:11:07 -CLASS_METHOD : com.bootdo.system.controller.LoginController.ajaxLogin
+2018-04-10 14:11:07 -参数 : [admin, 111111]
+2018-04-10 14:11:07 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+2018-04-10 14:11:07 -==> Parameters: admin(String)
+2018-04-10 14:11:07 -<==      Total: 1
+2018-04-10 14:11:07 -耗时 : 13
+2018-04-10 14:11:07 -返回值 : {msg=操作成功, code=0}
+2018-04-10 14:11:07 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-10 14:11:07 -==> Parameters: 1(Long), admin(String), 登录(String), 13(Integer), com.bootdo.system.controller.LoginController.ajaxLogin()(String), null, 127.0.0.1(String), 2018-04-10 14:11:07.253(Timestamp)
+2018-04-10 14:11:07 -<==    Updates: 1
+2018-04-10 14:11:07 -请求地址 : http://localhost/index
+2018-04-10 14:11:07 -HTTP METHOD : GET
+2018-04-10 14:11:07 -CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+2018-04-10 14:11:07 -参数 : [{}]
+2018-04-10 14:11:07 -==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+2018-04-10 14:11:07 -==> Parameters: 1(Long)
+2018-04-10 14:11:07 -<==      Total: 30
+2018-04-10 14:11:07 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file where id = ? 
+2018-04-10 14:11:07 -==> Parameters: 138(Long)
+2018-04-10 14:11:07 -<==      Total: 0
+2018-04-10 14:11:07 -耗时 : 32
+2018-04-10 14:11:07 -返回值 : index_v1
+2018-04-10 14:11:07 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-10 14:11:07 -==> Parameters: 1(Long), admin(String), 请求访问主页(String), 32(Integer), com.bootdo.system.controller.LoginController.index()(String), {"menus":[{"attributes":{"icon":"fa fa-bars","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-book","url":"/common/dict"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"78","parentId":"1","text":"数据字典"},{"attributes":{"icon":"fa fa-folder-open","url":"/common/sysFile"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"71","parentId":"1","text":"文件管理"}],"hasChildren":true,"hasParent":false,"id":"1","parentId":"0","text":"基础管理"},{"attributes":{"icon":"fa fa-desktop"},"checked":false,"children":[{"attributes":{"icon":"fa fa-star","url":"mytest/findAll"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"105","parentId":"3","text":"我的测试"},{"attributes":{"icon":"","url":"mytest/mastertable"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"114","parentId":"3","text":"主子表"},{"attributes":{"icon":"fa fa-user","url":"sys/user/"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"6","parentId":"3","text":"用户管理"},{"attributes":{"icon":"fa fa-paw","url":"sys/role"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"7","parentId":"3","text":"角色管理"},{"attributes":{"icon":"fa fa-th-list","url":"sys/menu/"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"2","parentId":"3","text":"系统菜单"},{"attributes":{"icon":"fa fa-users","url":"/system/sysDept"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"73","parentId":"3","text":"部门管理"}],"hasChildren":true,"hasParent":false,"id":"3","parentId":"0","text":"系统管理"},{"attributes":{"icon":"fa fa-gear","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/swagger-ui.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"104","parentId":"77","text":"swagger"},{"attributes":{"icon":"fa fa-code","url":"common/generator"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"48","parentId":"77","text":"代码生成"},{"attributes":{"icon":"fa fa-hourglass-1","url":"common/job"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"72","parentId":"77","text":"计划任务"}],"hasChildren":true,"hasParent":false,"id":"77","parentId":"0","text":"系统工具"},{"attributes":{"icon":"fa fa-video-camera","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-user","url":"sys/online"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"92","parentId":"91","text":"在线用户"},{"attributes":{"icon":"fa fa-warning","url":"common/log"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"27","parentId":"91","text":"系统日志"},{"attributes":{"icon":"fa fa-caret-square-o-right","url":"/druid/index.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"57","parentId":"91","text":"运行监控"}],"hasChildren":true,"hasParent":false,"id":"91","parentId":"0","text":"系统监控"},{"attributes":{"icon":"fa fa-laptop","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-envelope-square","url":"oa/notify/selfNotify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"90","parentId":"84","text":"我的通知"},{"attributes":{"icon":"fa fa-pencil-square","url":"oa/notify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"85","parentId":"84","text":"通知公告"}],"hasChildren":true,"hasParent":false,"id":"84","parentId":"0","text":"办公管理"},{"attributes":{"icon":"fa fa-rss","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-edit","url":"/blog/bContent/add"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"68","parentId":"49","text":"发布文章"},{"attributes":{"icon":"fa fa-file-image-o","url":"blog/bContent"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"50","parentId":"49","text":"文章列表"}],"hasChildren":true,"hasParent":false,"id":"49","parentId":"0","text":"博客管理"},{"attributes":{"icon":"fa fa-print","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-flag","url":"activiti/process"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"96","parentId":"93","text":"流程管理"},{"attributes":{"icon":"","url":"activiti/task/todo"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"101","parentId":"93","text":"待办任务"},{"attributes":{"icon":"fa fa-sort-amount-asc","url":"activiti/model"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"94","parentId":"93","text":"模型管理"}],"hasChildren":true,"hasParent":false,"id":"93","parentId":"0","text":"工作流程"},{"attributes":{"icon":"fa fa-bar-chart","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-area-chart","url":"/chart/graph_echarts.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"98","parentId":"97","text":"百度chart"}],"hasChildren":true,"hasParent":false,"id":"97","parentId":"0","text":"图表管理"}],"name":"超级管理员","picUrl":"/img/photo_s.jpg","us(String), 127.0.0.1(String), 2018-04-10 14:11:07.336(Timestamp)
+2018-04-10 14:11:07 -<==    Updates: 1
+2018-04-10 14:11:07 -请求地址 : http://localhost/main
+2018-04-10 14:11:07 -HTTP METHOD : GET
+2018-04-10 14:11:07 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2018-04-10 14:11:07 -参数 : []
+2018-04-10 14:11:07 -耗时 : 1
+2018-04-10 14:11:07 -返回值 : main
+2018-04-10 14:11:07 -请求地址 : http://localhost/oa/notify/message
+2018-04-10 14:11:07 -HTTP METHOD : GET
+2018-04-10 14:11:07 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+2018-04-10 14:11:07 -参数 : []
+2018-04-10 14:11:07 -==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.is_read = ? and r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+2018-04-10 14:11:07 -==> Parameters: 0(String), 1(Long), 0(Integer), 3(Integer)
+2018-04-10 14:11:07 -<==      Total: 0
+2018-04-10 14:11:07 -==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+2018-04-10 14:11:07 -==> Parameters: 1(Long), 0(String)
+2018-04-10 14:11:07 -<==      Total: 1
+2018-04-10 14:11:07 -耗时 : 14
+2018-04-10 14:11:07 -返回值 : com.bootdo.common.utils.PageUtils@7dda982
+2018-04-10 14:11:07 -请求地址 : http://localhost/main
+2018-04-10 14:11:07 -HTTP METHOD : GET
+2018-04-10 14:11:07 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2018-04-10 14:11:07 -参数 : []
+2018-04-10 14:11:07 -耗时 : 1
+2018-04-10 14:11:07 -返回值 : main
+2018-04-10 14:11:14 -请求地址 : http://localhost/mytest/mastertable
+2018-04-10 14:11:14 -HTTP METHOD : GET
+2018-04-10 14:11:14 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertable
+2018-04-10 14:11:14 -参数 : [{}]
+2018-04-10 14:11:14 -耗时 : 0
+2018-04-10 14:11:14 -返回值 : mytest/mastertablelist
+2018-04-10 14:11:14 -请求地址 : http://localhost/mytest/masterlist
+2018-04-10 14:11:14 -HTTP METHOD : GET
+2018-04-10 14:11:14 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.masterlist
+2018-04-10 14:11:14 -参数 : [{limit=10, offset=0, xname=}]
+2018-04-10 14:11:14 -==>  Preparing: select * from mytest order by id desc limit ?, ? 
+2018-04-10 14:11:14 -==> Parameters: 0(Integer), 10(Integer)
+2018-04-10 14:11:14 -<==      Total: 9
+2018-04-10 14:11:14 -==>  Preparing: select count(*) from mytest 
+2018-04-10 14:11:14 -==> Parameters: 
+2018-04-10 14:11:14 -<==      Total: 1
+2018-04-10 14:11:14 -耗时 : 11
+2018-04-10 14:11:14 -返回值 : com.bootdo.common.utils.PageUtils@5967815a
+2018-04-10 14:11:26 -请求地址 : http://localhost/mytest/addmastertable
+2018-04-10 14:11:26 -HTTP METHOD : GET
+2018-04-10 14:11:26 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.addmastertable
+2018-04-10 14:11:26 -参数 : [{}]
+2018-04-10 14:11:26 -耗时 : 1
+2018-04-10 14:11:26 -返回值 : mytest/addmastertable2
+2018-04-10 14:11:34 -请求地址 : http://localhost/system/sysDept/treeView
+2018-04-10 14:11:34 -HTTP METHOD : GET
+2018-04-10 14:11:34 -CLASS_METHOD : com.bootdo.system.controller.DeptController.treeView
+2018-04-10 14:11:34 -参数 : []
+2018-04-10 14:11:34 -耗时 : 0
+2018-04-10 14:11:34 -返回值 : system/dept/deptTree
+2018-04-10 14:11:34 -请求地址 : http://localhost/system/sysDept/tree
+2018-04-10 14:11:34 -HTTP METHOD : GET
+2018-04-10 14:11:34 -CLASS_METHOD : com.bootdo.system.controller.DeptController.tree
+2018-04-10 14:11:34 -参数 : []
+2018-04-10 14:11:34 -==>  Preparing: select `dept_id`,`parent_id`,`name`,`order_num`,`del_flag` from sys_dept order by dept_id desc 
+2018-04-10 14:11:34 -==> Parameters: 
+2018-04-10 14:11:34 -<==      Total: 10
+2018-04-10 14:11:34 -耗时 : 14
+2018-04-10 14:11:34 -返回值 : {"checked":true,"children":[{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"15","parentId":"13","state":{"opened":true},"text":"测试二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"14","parentId":"13","state":{"opened":true},"text":"测试一部"}],"hasChildren":true,"hasParent":false,"id":"13","parentId":"0","state":{"opened":true},"text":"测试部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"12","parentId":"11","state":{"opened":true},"text":"产品一部"}],"hasChildren":true,"hasParent":false,"id":"11","parentId":"0","state":{"opened":true},"text":"产品部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"10","parentId":"9","state":{"opened":true},"text":"销售一部"}],"hasChildren":true,"hasParent":false,"id":"9","parentId":"0","state":{"opened":true},"text":"销售部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"8","parentId":"6","state":{"opened":true},"text":"研发二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"7","parentId":"6","state":{"opened":true},"text":"研發一部"}],"hasChildren":true,"hasParent":false,"id":"6","parentId":"0","state":{"opened":true},"text":"研发部"}],"hasChildren":true,"hasParent":false,"id":"-1","parentId":"","state":{"opened":true},"text":"顶级节点"}
+2018-04-10 14:17:03 -Starting BootdoApplication on DESKTOP-ELB20L4 with PID 13196 (C:\Users\10892\Desktop\bootdo\bootdo\target\classes started by 10892 in C:\Users\10892\Desktop\bootdo\bootdo)
+2018-04-10 14:17:03 -Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-10 14:17:03 -The following profiles are active: dev
+2018-04-10 14:17:08 -Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryController': Unsatisfied dependency expressed through field 'salaryService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\com\bootdo\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\mybatis\system\FileMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.bootdo.BootdoApplication.main(BootdoApplication.java:15)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryServiceImpl': Unsatisfied dependency expressed through field 'salaryDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\com\bootdo\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\mybatis\system\FileMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'salaryDao' defined in file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\com\bootdo\activiti\dao\SalaryDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\mybatis\system\FileMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1249)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 32 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\mybatis\system\FileMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1342)
+	... 43 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\mybatis\system\FileMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 55 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [C:\Users\10892\Desktop\bootdo\bootdo\target\classes\mybatis\system\FileMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:522)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:546)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:130)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2da1e47a.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2da1e47a$$FastClassBySpringCGLIB$$6b3c66c9.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$2da1e47a.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 56 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:92)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:520)
+	... 69 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:118)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:74)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:135)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:118)
+	... 71 common frames omitted
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'com.zscat.shop.domain.FileDO'.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:120)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:149)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:116)
+	... 75 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.zscat.shop.domain.FileDO
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:116)
+	... 77 common frames omitted
+2018-04-10 14:17:46 -Starting BootdoApplication on DESKTOP-ELB20L4 with PID 17148 (C:\Users\10892\Desktop\bootdo\bootdo\target\classes started by 10892 in C:\Users\10892\Desktop\bootdo\bootdo)
+2018-04-10 14:17:46 -Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-10 14:17:46 -The following profiles are active: dev
+2018-04-10 14:17:51 -ApplicationContext registed-->org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f736069: startup date [Tue Apr 10 14:17:46 CST 2018]; root of context hierarchy
+2018-04-10 14:17:56 -==>  Preparing: select `id`,`cron_expression`,`method_name`,`is_concurrent`,`description`,`update_by`,`bean_class`,`create_date`,`job_status`,`job_group`,`update_date`,`create_by`,`spring_bean`,`job_name` from sys_task order by id desc 
+2018-04-10 14:17:56 -==> Parameters: 
+2018-04-10 14:17:56 -<==      Total: 1
+2018-04-10 14:17:56 -Started BootdoApplication in 11.419 seconds (JVM running for 12.155)
+2018-04-10 14:18:00 -请求地址 : http://localhost/login;JSESSIONID=e76ca21b-6925-488a-ace1-6f3c6de89b3d
+2018-04-10 14:18:00 -HTTP METHOD : GET
+2018-04-10 14:18:00 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2018-04-10 14:18:00 -参数 : []
+2018-04-10 14:18:00 -耗时 : 3
+2018-04-10 14:18:00 -返回值 : login
+2018-04-10 14:18:01 -请求地址 : http://localhost/login
+2018-04-10 14:18:01 -HTTP METHOD : GET
+2018-04-10 14:18:01 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2018-04-10 14:18:01 -参数 : []
+2018-04-10 14:18:01 -耗时 : 1
+2018-04-10 14:18:01 -返回值 : login
+2018-04-10 14:18:02 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+2018-04-10 14:18:02 -==> Parameters: admin(String)
+2018-04-10 14:18:02 -<==      Total: 1
+2018-04-10 14:18:02 -请求地址 : http://localhost/login
+2018-04-10 14:18:02 -HTTP METHOD : POST
+2018-04-10 14:18:02 -CLASS_METHOD : com.bootdo.system.controller.LoginController.ajaxLogin
+2018-04-10 14:18:02 -参数 : [admin, 111111]
+2018-04-10 14:18:02 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+2018-04-10 14:18:02 -==> Parameters: admin(String)
+2018-04-10 14:18:02 -<==      Total: 1
+2018-04-10 14:18:02 -耗时 : 8
+2018-04-10 14:18:02 -返回值 : {msg=操作成功, code=0}
+2018-04-10 14:18:02 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-10 14:18:02 -==> Parameters: 1(Long), admin(String), 登录(String), 9(Integer), com.bootdo.system.controller.LoginController.ajaxLogin()(String), null, 127.0.0.1(String), 2018-04-10 14:18:02.674(Timestamp)
+2018-04-10 14:18:02 -<==    Updates: 1
+2018-04-10 14:18:02 -请求地址 : http://localhost/index
+2018-04-10 14:18:02 -HTTP METHOD : GET
+2018-04-10 14:18:02 -CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+2018-04-10 14:18:02 -参数 : [{}]
+2018-04-10 14:18:02 -==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+2018-04-10 14:18:02 -==> Parameters: 1(Long)
+2018-04-10 14:18:02 -<==      Total: 30
+2018-04-10 14:18:02 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file where id = ? 
+2018-04-10 14:18:02 -==> Parameters: 138(Long)
+2018-04-10 14:18:02 -<==      Total: 0
+2018-04-10 14:18:02 -耗时 : 32
+2018-04-10 14:18:02 -返回值 : index_v1
+2018-04-10 14:18:02 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-10 14:18:02 -==> Parameters: 1(Long), admin(String), 请求访问主页(String), 32(Integer), com.bootdo.system.controller.LoginController.index()(String), {"menus":[{"attributes":{"icon":"fa fa-bars","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-book","url":"/common/dict"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"78","parentId":"1","text":"数据字典"},{"attributes":{"icon":"fa fa-folder-open","url":"/common/sysFile"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"71","parentId":"1","text":"文件管理"}],"hasChildren":true,"hasParent":false,"id":"1","parentId":"0","text":"基础管理"},{"attributes":{"icon":"fa fa-desktop"},"checked":false,"children":[{"attributes":{"icon":"","url":"mytest/mastertable"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"114","parentId":"3","text":"主子表"},{"attributes":{"icon":"fa fa-star","url":"mytest/findAll"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"105","parentId":"3","text":"我的测试"},{"attributes":{"icon":"fa fa-user","url":"sys/user/"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"6","parentId":"3","text":"用户管理"},{"attributes":{"icon":"fa fa-paw","url":"sys/role"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"7","parentId":"3","text":"角色管理"},{"attributes":{"icon":"fa fa-th-list","url":"sys/menu/"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"2","parentId":"3","text":"系统菜单"},{"attributes":{"icon":"fa fa-users","url":"/system/sysDept"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"73","parentId":"3","text":"部门管理"}],"hasChildren":true,"hasParent":false,"id":"3","parentId":"0","text":"系统管理"},{"attributes":{"icon":"fa fa-gear","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/swagger-ui.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"104","parentId":"77","text":"swagger"},{"attributes":{"icon":"fa fa-code","url":"common/generator"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"48","parentId":"77","text":"代码生成"},{"attributes":{"icon":"fa fa-hourglass-1","url":"common/job"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"72","parentId":"77","text":"计划任务"}],"hasChildren":true,"hasParent":false,"id":"77","parentId":"0","text":"系统工具"},{"attributes":{"icon":"fa fa-video-camera","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-user","url":"sys/online"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"92","parentId":"91","text":"在线用户"},{"attributes":{"icon":"fa fa-warning","url":"common/log"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"27","parentId":"91","text":"系统日志"},{"attributes":{"icon":"fa fa-caret-square-o-right","url":"/druid/index.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"57","parentId":"91","text":"运行监控"}],"hasChildren":true,"hasParent":false,"id":"91","parentId":"0","text":"系统监控"},{"attributes":{"icon":"fa fa-laptop","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-pencil-square","url":"oa/notify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"85","parentId":"84","text":"通知公告"},{"attributes":{"icon":"fa fa-envelope-square","url":"oa/notify/selfNotify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"90","parentId":"84","text":"我的通知"}],"hasChildren":true,"hasParent":false,"id":"84","parentId":"0","text":"办公管理"},{"attributes":{"icon":"fa fa-rss","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-edit","url":"/blog/bContent/add"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"68","parentId":"49","text":"发布文章"},{"attributes":{"icon":"fa fa-file-image-o","url":"blog/bContent"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"50","parentId":"49","text":"文章列表"}],"hasChildren":true,"hasParent":false,"id":"49","parentId":"0","text":"博客管理"},{"attributes":{"icon":"fa fa-print","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-flag","url":"activiti/process"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"96","parentId":"93","text":"流程管理"},{"attributes":{"icon":"","url":"activiti/task/todo"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"101","parentId":"93","text":"待办任务"},{"attributes":{"icon":"fa fa-sort-amount-asc","url":"activiti/model"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"94","parentId":"93","text":"模型管理"}],"hasChildren":true,"hasParent":false,"id":"93","parentId":"0","text":"工作流程"},{"attributes":{"icon":"fa fa-bar-chart","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-area-chart","url":"/chart/graph_echarts.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"98","parentId":"97","text":"百度chart"}],"hasChildren":true,"hasParent":false,"id":"97","parentId":"0","text":"图表管理"}],"name":"超级管理员","picUrl":"/img/photo_s.jpg","us(String), 127.0.0.1(String), 2018-04-10 14:18:02.766(Timestamp)
+2018-04-10 14:18:02 -<==    Updates: 1
+2018-04-10 14:18:02 -请求地址 : http://localhost/main
+2018-04-10 14:18:02 -HTTP METHOD : GET
+2018-04-10 14:18:02 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2018-04-10 14:18:02 -参数 : []
+2018-04-10 14:18:02 -耗时 : 0
+2018-04-10 14:18:02 -返回值 : main
+2018-04-10 14:18:02 -请求地址 : http://localhost/oa/notify/message
+2018-04-10 14:18:02 -HTTP METHOD : GET
+2018-04-10 14:18:02 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+2018-04-10 14:18:02 -参数 : []
+2018-04-10 14:18:02 -==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.is_read = ? and r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+2018-04-10 14:18:02 -==> Parameters: 0(String), 1(Long), 0(Integer), 3(Integer)
+2018-04-10 14:18:02 -<==      Total: 0
+2018-04-10 14:18:02 -==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+2018-04-10 14:18:02 -==> Parameters: 1(Long), 0(String)
+2018-04-10 14:18:02 -<==      Total: 1
+2018-04-10 14:18:02 -耗时 : 11
+2018-04-10 14:18:02 -返回值 : com.bootdo.common.utils.PageUtils@1a6606ab
+2018-04-10 14:18:03 -请求地址 : http://localhost/main
+2018-04-10 14:18:03 -HTTP METHOD : GET
+2018-04-10 14:18:03 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2018-04-10 14:18:03 -参数 : []
+2018-04-10 14:18:03 -耗时 : 1
+2018-04-10 14:18:03 -返回值 : main
+2018-04-10 14:18:05 -请求地址 : http://localhost/mytest/mastertable
+2018-04-10 14:18:05 -HTTP METHOD : GET
+2018-04-10 14:18:05 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertable
+2018-04-10 14:18:05 -参数 : [{}]
+2018-04-10 14:18:05 -耗时 : 0
+2018-04-10 14:18:05 -返回值 : mytest/mastertablelist
+2018-04-10 14:18:05 -请求地址 : http://localhost/mytest/masterlist
+2018-04-10 14:18:05 -HTTP METHOD : GET
+2018-04-10 14:18:05 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.masterlist
+2018-04-10 14:18:05 -参数 : [{limit=10, offset=0, xname=}]
+2018-04-10 14:18:05 -==>  Preparing: select * from mytest order by id desc limit ?, ? 
+2018-04-10 14:18:05 -==> Parameters: 0(Integer), 10(Integer)
+2018-04-10 14:18:05 -<==      Total: 9
+2018-04-10 14:18:05 -==>  Preparing: select count(*) from mytest 
+2018-04-10 14:18:05 -==> Parameters: 
+2018-04-10 14:18:05 -<==      Total: 1
+2018-04-10 14:18:05 -耗时 : 10
+2018-04-10 14:18:05 -返回值 : com.bootdo.common.utils.PageUtils@42a5e12b
+2018-04-10 15:06:56 -Starting BootdoApplication on DESKTOP-ELB20L4 with PID 10232 (C:\Users\10892\Desktop\bootdo\bootdo\target\classes started by 10892 in C:\Users\10892\Desktop\bootdo\bootdo)
+2018-04-10 15:06:56 -Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-10 15:06:56 -The following profiles are active: dev
+2018-04-10 15:07:02 -ApplicationContext registed-->org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f736069: startup date [Tue Apr 10 15:06:56 CST 2018]; root of context hierarchy
+2018-04-10 15:07:07 -==>  Preparing: select `id`,`cron_expression`,`method_name`,`is_concurrent`,`description`,`update_by`,`bean_class`,`create_date`,`job_status`,`job_group`,`update_date`,`create_by`,`spring_bean`,`job_name` from sys_task order by id desc 
+2018-04-10 15:07:07 -==> Parameters: 
+2018-04-10 15:07:07 -<==      Total: 1
+2018-04-10 15:07:07 -Started BootdoApplication in 11.909 seconds (JVM running for 13.083)
+2018-04-10 15:09:43 -请求地址 : http://localhost/
+2018-04-10 15:09:43 -HTTP METHOD : GET
+2018-04-10 15:09:43 -CLASS_METHOD : com.bootdo.system.controller.LoginController.welcome
+2018-04-10 15:09:43 -参数 : [{}]
+2018-04-10 15:09:43 -耗时 : 3
+2018-04-10 15:09:43 -返回值 : redirect:/blog
+2018-04-10 15:09:43 -请求地址 : http://localhost/blog
+2018-04-10 15:09:43 -HTTP METHOD : GET
+2018-04-10 15:09:43 -CLASS_METHOD : com.bootdo.blog.controller.BlogController.blog
+2018-04-10 15:09:43 -参数 : []
+2018-04-10 15:09:43 -耗时 : 0
+2018-04-10 15:09:43 -返回值 : blog/index/main
+2018-04-10 15:09:43 -请求地址 : http://localhost/blog/open/list
+2018-04-10 15:09:43 -HTTP METHOD : GET
+2018-04-10 15:09:43 -CLASS_METHOD : com.bootdo.blog.controller.BlogController.opentList
+2018-04-10 15:09:43 -参数 : [{type=article, limit=10, offset=0}]
+2018-04-10 15:09:43 -==>  Preparing: select `cid`,`title`,`slug`,`created`,`modified`,`content`,`type`,`tags`,`categories`,`hits`,`comments_num`,`allow_comment`,`allow_ping`,`allow_feed`,`status`,`author`,`gtm_create`,`gtm_modified` from blog_content WHERE type = ? order by cid desc limit 0, 10 
+2018-04-10 15:09:43 -==> Parameters: article(String)
+2018-04-10 15:09:43 -<==      Total: 10
+2018-04-10 15:09:43 -==>  Preparing: select count(*) from blog_content WHERE type = ? 
+2018-04-10 15:09:43 -==> Parameters: article(String)
+2018-04-10 15:09:43 -<==      Total: 1
+2018-04-10 15:09:43 -耗时 : 55
+2018-04-10 15:09:43 -返回值 : com.bootdo.common.utils.PageUtils@259b5be3
+2018-04-10 15:09:45 -请求地址 : http://localhost/login
+2018-04-10 15:09:45 -HTTP METHOD : GET
+2018-04-10 15:09:45 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2018-04-10 15:09:45 -参数 : []
+2018-04-10 15:09:45 -耗时 : 0
+2018-04-10 15:09:45 -返回值 : login
+2018-04-10 15:09:47 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+2018-04-10 15:09:47 -==> Parameters: admin(String)
+2018-04-10 15:09:47 -<==      Total: 1
+2018-04-10 15:09:47 -请求地址 : http://localhost/login
+2018-04-10 15:09:47 -HTTP METHOD : POST
+2018-04-10 15:09:47 -CLASS_METHOD : com.bootdo.system.controller.LoginController.ajaxLogin
+2018-04-10 15:09:47 -参数 : [admin, 111111]
+2018-04-10 15:09:47 -==>  Preparing: select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user WHERE username = ? order by user_id desc 
+2018-04-10 15:09:47 -==> Parameters: admin(String)
+2018-04-10 15:09:47 -<==      Total: 1
+2018-04-10 15:09:47 -耗时 : 16
+2018-04-10 15:09:47 -返回值 : {msg=操作成功, code=0}
+2018-04-10 15:09:47 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-10 15:09:47 -==> Parameters: 1(Long), admin(String), 登录(String), 16(Integer), com.bootdo.system.controller.LoginController.ajaxLogin()(String), null, 127.0.0.1(String), 2018-04-10 15:09:47.319(Timestamp)
+2018-04-10 15:09:47 -<==    Updates: 1
+2018-04-10 15:09:47 -请求地址 : http://localhost/index
+2018-04-10 15:09:47 -HTTP METHOD : GET
+2018-04-10 15:09:47 -CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+2018-04-10 15:09:47 -参数 : [{}]
+2018-04-10 15:09:47 -==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+2018-04-10 15:09:47 -==> Parameters: 1(Long)
+2018-04-10 15:09:47 -<==      Total: 30
+2018-04-10 15:09:47 -==>  Preparing: select `id`,`type`,`url`,`create_date` from sys_file where id = ? 
+2018-04-10 15:09:47 -==> Parameters: 138(Long)
+2018-04-10 15:09:47 -<==      Total: 0
+2018-04-10 15:09:47 -耗时 : 27
+2018-04-10 15:09:47 -返回值 : index_v1
+2018-04-10 15:09:47 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-10 15:09:47 -==> Parameters: 1(Long), admin(String), 请求访问主页(String), 28(Integer), com.bootdo.system.controller.LoginController.index()(String), {"menus":[{"attributes":{"icon":"fa fa-bars","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-book","url":"/common/dict"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"78","parentId":"1","text":"数据字典"},{"attributes":{"icon":"fa fa-folder-open","url":"/common/sysFile"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"71","parentId":"1","text":"文件管理"}],"hasChildren":true,"hasParent":false,"id":"1","parentId":"0","text":"基础管理"},{"attributes":{"icon":"fa fa-desktop"},"checked":false,"children":[{"attributes":{"icon":"fa fa-star","url":"mytest/findAll"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"105","parentId":"3","text":"我的测试"},{"attributes":{"icon":"","url":"mytest/mastertable"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"114","parentId":"3","text":"主子表"},{"attributes":{"icon":"fa fa-user","url":"sys/user/"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"6","parentId":"3","text":"用户管理"},{"attributes":{"icon":"fa fa-paw","url":"sys/role"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"7","parentId":"3","text":"角色管理"},{"attributes":{"icon":"fa fa-th-list","url":"sys/menu/"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"2","parentId":"3","text":"系统菜单"},{"attributes":{"icon":"fa fa-users","url":"/system/sysDept"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"73","parentId":"3","text":"部门管理"}],"hasChildren":true,"hasParent":false,"id":"3","parentId":"0","text":"系统管理"},{"attributes":{"icon":"fa fa-gear","url":""},"checked":false,"children":[{"attributes":{"icon":"","url":"/swagger-ui.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"104","parentId":"77","text":"swagger"},{"attributes":{"icon":"fa fa-code","url":"common/generator"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"48","parentId":"77","text":"代码生成"},{"attributes":{"icon":"fa fa-hourglass-1","url":"common/job"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"72","parentId":"77","text":"计划任务"}],"hasChildren":true,"hasParent":false,"id":"77","parentId":"0","text":"系统工具"},{"attributes":{"icon":"fa fa-video-camera","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-user","url":"sys/online"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"92","parentId":"91","text":"在线用户"},{"attributes":{"icon":"fa fa-warning","url":"common/log"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"27","parentId":"91","text":"系统日志"},{"attributes":{"icon":"fa fa-caret-square-o-right","url":"/druid/index.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"57","parentId":"91","text":"运行监控"}],"hasChildren":true,"hasParent":false,"id":"91","parentId":"0","text":"系统监控"},{"attributes":{"icon":"fa fa-laptop","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-pencil-square","url":"oa/notify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"85","parentId":"84","text":"通知公告"},{"attributes":{"icon":"fa fa-envelope-square","url":"oa/notify/selfNotify"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"90","parentId":"84","text":"我的通知"}],"hasChildren":true,"hasParent":false,"id":"84","parentId":"0","text":"办公管理"},{"attributes":{"icon":"fa fa-rss","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-edit","url":"/blog/bContent/add"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"68","parentId":"49","text":"发布文章"},{"attributes":{"icon":"fa fa-file-image-o","url":"blog/bContent"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"50","parentId":"49","text":"文章列表"}],"hasChildren":true,"hasParent":false,"id":"49","parentId":"0","text":"博客管理"},{"attributes":{"icon":"fa fa-print","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-sort-amount-asc","url":"activiti/model"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"94","parentId":"93","text":"模型管理"},{"attributes":{"icon":"fa fa-flag","url":"activiti/process"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"96","parentId":"93","text":"流程管理"},{"attributes":{"icon":"","url":"activiti/task/todo"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"101","parentId":"93","text":"待办任务"}],"hasChildren":true,"hasParent":false,"id":"93","parentId":"0","text":"工作流程"},{"attributes":{"icon":"fa fa-bar-chart","url":""},"checked":false,"children":[{"attributes":{"icon":"fa fa-area-chart","url":"/chart/graph_echarts.html"},"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"98","parentId":"97","text":"百度chart"}],"hasChildren":true,"hasParent":false,"id":"97","parentId":"0","text":"图表管理"}],"name":"超级管理员","picUrl":"/img/photo_s.jpg","us(String), 127.0.0.1(String), 2018-04-10 15:09:47.401(Timestamp)
+2018-04-10 15:09:47 -<==    Updates: 1
+2018-04-10 15:09:47 -请求地址 : http://localhost/main
+2018-04-10 15:09:47 -HTTP METHOD : GET
+2018-04-10 15:09:47 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2018-04-10 15:09:47 -参数 : []
+2018-04-10 15:09:47 -耗时 : 0
+2018-04-10 15:09:47 -返回值 : main
+2018-04-10 15:09:47 -请求地址 : http://localhost/oa/notify/message
+2018-04-10 15:09:47 -HTTP METHOD : GET
+2018-04-10 15:09:47 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+2018-04-10 15:09:47 -参数 : []
+2018-04-10 15:09:47 -==>  Preparing: select DISTINCT n.id ,`type`,`title`,`content`,`files`,r.is_read,`status`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id WHERE r.is_read = ? and r.user_id = ? order by is_read ASC, update_date DESC limit ?, ? 
+2018-04-10 15:09:47 -==> Parameters: 0(String), 1(Long), 0(Integer), 3(Integer)
+2018-04-10 15:09:47 -<==      Total: 0
+2018-04-10 15:09:47 -==>  Preparing: select count(*) from oa_notify_record r right JOIN oa_notify n on r.notify_id = n.id where r.user_id =? and r.is_read = ? 
+2018-04-10 15:09:47 -==> Parameters: 1(Long), 0(String)
+2018-04-10 15:09:47 -<==      Total: 1
+2018-04-10 15:09:47 -耗时 : 9
+2018-04-10 15:09:47 -返回值 : com.bootdo.common.utils.PageUtils@1c240e5a
+2018-04-10 15:09:47 -请求地址 : http://localhost/main
+2018-04-10 15:09:47 -HTTP METHOD : GET
+2018-04-10 15:09:47 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2018-04-10 15:09:47 -参数 : []
+2018-04-10 15:09:47 -耗时 : 0
+2018-04-10 15:09:47 -返回值 : main
+2018-04-10 15:09:52 -请求地址 : http://localhost/mytest/mastertable
+2018-04-10 15:09:52 -HTTP METHOD : GET
+2018-04-10 15:09:52 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertable
+2018-04-10 15:09:52 -参数 : [{}]
+2018-04-10 15:09:52 -耗时 : 0
+2018-04-10 15:09:52 -返回值 : mytest/mastertablelist
+2018-04-10 15:09:53 -请求地址 : http://localhost/mytest/masterlist
+2018-04-10 15:09:53 -HTTP METHOD : GET
+2018-04-10 15:09:53 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.masterlist
+2018-04-10 15:09:53 -参数 : [{limit=10, offset=0, xname=}]
+2018-04-10 15:09:53 -==>  Preparing: select * from mytest order by id desc limit ?, ? 
+2018-04-10 15:09:53 -==> Parameters: 0(Integer), 10(Integer)
+2018-04-10 15:09:53 -<==      Total: 9
+2018-04-10 15:09:53 -==>  Preparing: select count(*) from mytest 
+2018-04-10 15:09:53 -==> Parameters: 
+2018-04-10 15:09:53 -<==      Total: 1
+2018-04-10 15:09:53 -耗时 : 16
+2018-04-10 15:09:53 -返回值 : com.bootdo.common.utils.PageUtils@60d2acd7
+2018-04-10 15:13:02 -请求地址 : http://localhost/mytest/addmastertable
+2018-04-10 15:13:02 -HTTP METHOD : GET
+2018-04-10 15:13:02 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.addmastertable
+2018-04-10 15:13:02 -参数 : [{}]
+2018-04-10 15:13:02 -耗时 : 0
+2018-04-10 15:13:02 -返回值 : mytest/addmastertable2
+2018-04-10 15:16:42 -请求地址 : http://localhost/mytest/addmastertable
+2018-04-10 15:16:42 -HTTP METHOD : GET
+2018-04-10 15:16:42 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.addmastertable
+2018-04-10 15:16:42 -参数 : [{}]
+2018-04-10 15:16:42 -耗时 : 0
+2018-04-10 15:16:42 -返回值 : mytest/addmastertable2
+2018-04-10 15:18:06 -请求地址 : http://localhost/mytest/addmastertable
+2018-04-10 15:18:06 -HTTP METHOD : GET
+2018-04-10 15:18:06 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.addmastertable
+2018-04-10 15:18:06 -参数 : [{}]
+2018-04-10 15:18:06 -耗时 : 0
+2018-04-10 15:18:06 -返回值 : mytest/addmastertable2
+2018-04-10 15:23:29 -请求地址 : http://localhost/system/sysDept/treeView
+2018-04-10 15:23:29 -HTTP METHOD : GET
+2018-04-10 15:23:29 -CLASS_METHOD : com.bootdo.system.controller.DeptController.treeView
+2018-04-10 15:23:29 -参数 : []
+2018-04-10 15:23:29 -耗时 : 0
+2018-04-10 15:23:29 -返回值 : system/dept/deptTree
+2018-04-10 15:23:29 -请求地址 : http://localhost/system/sysDept/tree
+2018-04-10 15:23:29 -HTTP METHOD : GET
+2018-04-10 15:23:29 -CLASS_METHOD : com.bootdo.system.controller.DeptController.tree
+2018-04-10 15:23:29 -参数 : []
+2018-04-10 15:23:29 -==>  Preparing: select `dept_id`,`parent_id`,`name`,`order_num`,`del_flag` from sys_dept order by dept_id desc 
+2018-04-10 15:23:29 -==> Parameters: 
+2018-04-10 15:23:29 -<==      Total: 10
+2018-04-10 15:23:29 -耗时 : 14
+2018-04-10 15:23:29 -返回值 : {"checked":true,"children":[{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"15","parentId":"13","state":{"opened":true},"text":"测试二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"14","parentId":"13","state":{"opened":true},"text":"测试一部"}],"hasChildren":true,"hasParent":false,"id":"13","parentId":"0","state":{"opened":true},"text":"测试部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"12","parentId":"11","state":{"opened":true},"text":"产品一部"}],"hasChildren":true,"hasParent":false,"id":"11","parentId":"0","state":{"opened":true},"text":"产品部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"10","parentId":"9","state":{"opened":true},"text":"销售一部"}],"hasChildren":true,"hasParent":false,"id":"9","parentId":"0","state":{"opened":true},"text":"销售部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"8","parentId":"6","state":{"opened":true},"text":"研发二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"7","parentId":"6","state":{"opened":true},"text":"研發一部"}],"hasChildren":true,"hasParent":false,"id":"6","parentId":"0","state":{"opened":true},"text":"研发部"}],"hasChildren":true,"hasParent":false,"id":"-1","parentId":"","state":{"opened":true},"text":"顶级节点"}
+2018-04-10 15:38:15 -请求地址 : http://localhost/mytest/addmastertable
+2018-04-10 15:38:15 -HTTP METHOD : GET
+2018-04-10 15:38:15 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.addmastertable
+2018-04-10 15:38:15 -参数 : [{}]
+2018-04-10 15:38:15 -耗时 : 0
+2018-04-10 15:38:15 -返回值 : mytest/addmastertable2
+2018-04-10 15:51:13 -请求地址 : http://localhost/system/sysDept/treeView
+2018-04-10 15:51:13 -HTTP METHOD : GET
+2018-04-10 15:51:13 -CLASS_METHOD : com.bootdo.system.controller.DeptController.treeView
+2018-04-10 15:51:13 -参数 : []
+2018-04-10 15:51:13 -耗时 : 1
+2018-04-10 15:51:13 -返回值 : system/dept/deptTree
+2018-04-10 15:51:13 -请求地址 : http://localhost/system/sysDept/tree
+2018-04-10 15:51:13 -HTTP METHOD : GET
+2018-04-10 15:51:13 -CLASS_METHOD : com.bootdo.system.controller.DeptController.tree
+2018-04-10 15:51:13 -参数 : []
+2018-04-10 15:51:13 -==>  Preparing: select `dept_id`,`parent_id`,`name`,`order_num`,`del_flag` from sys_dept order by dept_id desc 
+2018-04-10 15:51:13 -==> Parameters: 
+2018-04-10 15:51:13 -<==      Total: 10
+2018-04-10 15:51:13 -耗时 : 5
+2018-04-10 15:51:13 -返回值 : {"checked":true,"children":[{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"15","parentId":"13","state":{"opened":true},"text":"测试二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"14","parentId":"13","state":{"opened":true},"text":"测试一部"}],"hasChildren":true,"hasParent":false,"id":"13","parentId":"0","state":{"opened":true},"text":"测试部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"12","parentId":"11","state":{"opened":true},"text":"产品一部"}],"hasChildren":true,"hasParent":false,"id":"11","parentId":"0","state":{"opened":true},"text":"产品部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"10","parentId":"9","state":{"opened":true},"text":"销售一部"}],"hasChildren":true,"hasParent":false,"id":"9","parentId":"0","state":{"opened":true},"text":"销售部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"8","parentId":"6","state":{"opened":true},"text":"研发二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"7","parentId":"6","state":{"opened":true},"text":"研發一部"}],"hasChildren":true,"hasParent":false,"id":"6","parentId":"0","state":{"opened":true},"text":"研发部"}],"hasChildren":true,"hasParent":false,"id":"-1","parentId":"","state":{"opened":true},"text":"顶级节点"}
+2018-04-10 15:51:19 -请求地址 : http://localhost/mytest/addmassnewtable
+2018-04-10 15:51:19 -HTTP METHOD : POST
+2018-04-10 15:51:19 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.addmassnewtable
+2018-04-10 15:51:19 -参数 : [MyTest{id=123, xname='123', age='123', deptId=15, deptName='测试二部', mclass=[{"tid":1,"testInput":"123","testSort":"12","testTextarea":"","testSelect":"1","testDate":"2018-05-03"}], map=null}]
+2018-04-10 15:51:19 -==>  Preparing: insert into mytest(`id`,`xname`,`age`,`deptId`,`deptName`) values(?,?,?,?,?) 
+2018-04-10 15:51:19 -==> Parameters: 123(Integer), 123(String), 123(String), 15(Integer), 测试二部(String)
+2018-04-10 15:51:19 -<==    Updates: 1
+2018-04-10 15:51:19 -==>  Preparing: insert into myclass(`testInput`,`testSort`,`testTextarea`,`testSelect`,`testSelectMultiple`,`testRadio`,`testCheckbox`,`testDate`,`mid`) values ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2018-04-10 15:51:19 -==> Parameters: 123(String), 12(String), (String), 1(String), null, null, null, 2018-05-03 00:00:00.0(Timestamp), 123(Integer)
+2018-04-10 15:51:19 -<==    Updates: 1
+2018-04-10 15:51:19 -耗时 : 31
+2018-04-10 15:51:19 -返回值 : {msg=操作成功, code=0}
+2018-04-10 15:51:19 -请求地址 : http://localhost/mytest/masterlist
+2018-04-10 15:51:19 -HTTP METHOD : GET
+2018-04-10 15:51:19 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.masterlist
+2018-04-10 15:51:19 -参数 : [{limit=10, offset=0, xname=}]
+2018-04-10 15:51:19 -==>  Preparing: select * from mytest order by id desc limit ?, ? 
+2018-04-10 15:51:19 -==> Parameters: 0(Integer), 10(Integer)
+2018-04-10 15:51:19 -<==      Total: 10
+2018-04-10 15:51:19 -==>  Preparing: select count(*) from mytest 
+2018-04-10 15:51:19 -==> Parameters: 
+2018-04-10 15:51:19 -<==      Total: 1
+2018-04-10 15:51:19 -耗时 : 9
+2018-04-10 15:51:19 -返回值 : com.bootdo.common.utils.PageUtils@793e05b0
+2018-04-10 15:51:33 -请求地址 : http://localhost/mytest/masterlist
+2018-04-10 15:51:33 -HTTP METHOD : GET
+2018-04-10 15:51:33 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.masterlist
+2018-04-10 15:51:33 -参数 : [{limit=10, offset=0, xname=123}]
+2018-04-10 15:51:33 -==>  Preparing: select * from mytest WHERE xname like ? order by id desc limit ?, ? 
+2018-04-10 15:51:33 -==> Parameters: %123%(String), 0(Integer), 10(Integer)
+2018-04-10 15:51:33 -<==      Total: 1
+2018-04-10 15:51:33 -==>  Preparing: select count(*) from mytest WHERE xname like ? 
+2018-04-10 15:51:33 -==> Parameters: %123%(String)
+2018-04-10 15:51:33 -<==      Total: 1
+2018-04-10 15:51:33 -耗时 : 10
+2018-04-10 15:51:33 -返回值 : com.bootdo.common.utils.PageUtils@1fe454c4
+2018-04-10 15:51:36 -请求地址 : http://localhost/mytest/editmastertable/123
+2018-04-10 15:51:36 -HTTP METHOD : GET
+2018-04-10 15:51:36 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.editmastertable
+2018-04-10 15:51:36 -参数 : [{}, 123]
+2018-04-10 15:51:36 -==>  Preparing: select * from mytest where id = ? 
+2018-04-10 15:51:36 -==> Parameters: 123(Long)
+2018-04-10 15:51:36 -<==      Total: 1
+2018-04-10 15:51:36 -耗时 : 3
+2018-04-10 15:51:36 -返回值 : mytest/editmastertable2
+2018-04-10 15:51:36 -请求地址 : http://localhost/mytest/mastertablesonlist
+2018-04-10 15:51:36 -HTTP METHOD : GET
+2018-04-10 15:51:36 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertablesonlist
+2018-04-10 15:51:36 -参数 : [{limit=10, offset=0, mid=123, testInput=}, {}]
+2018-04-10 15:51:36 -==>  Preparing: select * from myclass WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 15:51:36 -==> Parameters: 123(String), 0(Integer), 10(Integer)
+2018-04-10 15:51:36 -<==      Total: 1
+2018-04-10 15:51:36 -==>  Preparing: select count(*) from myclass WHERE mid = ? 
+2018-04-10 15:51:36 -==> Parameters: 123(String)
+2018-04-10 15:51:36 -<==      Total: 1
+2018-04-10 15:51:36 -耗时 : 8
+2018-04-10 15:51:36 -返回值 : com.bootdo.common.utils.PageUtils@6ae98570
+2018-04-10 15:51:36 -请求地址 : http://localhost/mytest/getMyteacherlist
+2018-04-10 15:51:36 -HTTP METHOD : GET
+2018-04-10 15:51:36 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.getMyteacherlist
+2018-04-10 15:51:36 -参数 : [{limit=10, offset=0, mid=123, tname=}, {}]
+2018-04-10 15:51:36 -==>  Preparing: select * from myteacher WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 15:51:36 -==> Parameters: 123(String), 0(Integer), 10(Integer)
+2018-04-10 15:51:36 -<==      Total: 0
+2018-04-10 15:51:36 -==>  Preparing: select count(*) from myteacher WHERE mid = ? 
+2018-04-10 15:51:36 -==> Parameters: 123(String)
+2018-04-10 15:51:36 -<==      Total: 1
+2018-04-10 15:51:36 -耗时 : 9
+2018-04-10 15:51:36 -返回值 : com.bootdo.common.utils.PageUtils@4fa9a58c
+2018-04-10 16:12:41 -请求地址 : http://localhost/mytest/addmastertable
+2018-04-10 16:12:41 -HTTP METHOD : GET
+2018-04-10 16:12:41 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.addmastertable
+2018-04-10 16:12:41 -参数 : [{}]
+2018-04-10 16:12:41 -耗时 : 1
+2018-04-10 16:12:41 -返回值 : mytest/addmastertable2
+2018-04-10 16:20:35 -请求地址 : http://localhost/mytest/editmastertable/123
+2018-04-10 16:20:35 -HTTP METHOD : GET
+2018-04-10 16:20:35 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.editmastertable
+2018-04-10 16:20:35 -参数 : [{}, 123]
+2018-04-10 16:20:35 -==>  Preparing: select * from mytest where id = ? 
+2018-04-10 16:20:35 -==> Parameters: 123(Long)
+2018-04-10 16:20:35 -<==      Total: 1
+2018-04-10 16:20:35 -耗时 : 3
+2018-04-10 16:20:35 -返回值 : mytest/editmastertable2
+2018-04-10 16:20:35 -请求地址 : http://localhost/mytest/mastertablesonlist
+2018-04-10 16:20:35 -HTTP METHOD : GET
+2018-04-10 16:20:35 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertablesonlist
+2018-04-10 16:20:35 -参数 : [{limit=10, offset=0, mid=123, testInput=}, {}]
+2018-04-10 16:20:35 -==>  Preparing: select * from myclass WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:20:35 -==> Parameters: 123(String), 0(Integer), 10(Integer)
+2018-04-10 16:20:35 -<==      Total: 1
+2018-04-10 16:20:35 -==>  Preparing: select count(*) from myclass WHERE mid = ? 
+2018-04-10 16:20:35 -==> Parameters: 123(String)
+2018-04-10 16:20:35 -<==      Total: 1
+2018-04-10 16:20:35 -耗时 : 4
+2018-04-10 16:20:35 -返回值 : com.bootdo.common.utils.PageUtils@7576ffb8
+2018-04-10 16:20:35 -请求地址 : http://localhost/mytest/getMyteacherlist
+2018-04-10 16:20:35 -HTTP METHOD : GET
+2018-04-10 16:20:35 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.getMyteacherlist
+2018-04-10 16:20:35 -参数 : [{limit=10, offset=0, mid=123, tname=}, {}]
+2018-04-10 16:20:35 -==>  Preparing: select * from myteacher WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:20:35 -==> Parameters: 123(String), 0(Integer), 10(Integer)
+2018-04-10 16:20:35 -<==      Total: 0
+2018-04-10 16:20:35 -==>  Preparing: select count(*) from myteacher WHERE mid = ? 
+2018-04-10 16:20:35 -==> Parameters: 123(String)
+2018-04-10 16:20:35 -<==      Total: 1
+2018-04-10 16:20:35 -耗时 : 6
+2018-04-10 16:20:35 -返回值 : com.bootdo.common.utils.PageUtils@715be7fb
+2018-04-10 16:20:38 -请求地址 : http://localhost/system/sysDept/treeView
+2018-04-10 16:20:38 -HTTP METHOD : GET
+2018-04-10 16:20:38 -CLASS_METHOD : com.bootdo.system.controller.DeptController.treeView
+2018-04-10 16:20:38 -参数 : []
+2018-04-10 16:20:38 -耗时 : 1
+2018-04-10 16:20:38 -返回值 : system/dept/deptTree
+2018-04-10 16:20:38 -请求地址 : http://localhost/system/sysDept/tree
+2018-04-10 16:20:38 -HTTP METHOD : GET
+2018-04-10 16:20:38 -CLASS_METHOD : com.bootdo.system.controller.DeptController.tree
+2018-04-10 16:20:38 -参数 : []
+2018-04-10 16:20:38 -==>  Preparing: select `dept_id`,`parent_id`,`name`,`order_num`,`del_flag` from sys_dept order by dept_id desc 
+2018-04-10 16:20:38 -==> Parameters: 
+2018-04-10 16:20:38 -<==      Total: 10
+2018-04-10 16:20:38 -耗时 : 5
+2018-04-10 16:20:38 -返回值 : {"checked":true,"children":[{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"15","parentId":"13","state":{"opened":true},"text":"测试二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"14","parentId":"13","state":{"opened":true},"text":"测试一部"}],"hasChildren":true,"hasParent":false,"id":"13","parentId":"0","state":{"opened":true},"text":"测试部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"12","parentId":"11","state":{"opened":true},"text":"产品一部"}],"hasChildren":true,"hasParent":false,"id":"11","parentId":"0","state":{"opened":true},"text":"产品部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"10","parentId":"9","state":{"opened":true},"text":"销售一部"}],"hasChildren":true,"hasParent":false,"id":"9","parentId":"0","state":{"opened":true},"text":"销售部"},{"checked":false,"children":[{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"8","parentId":"6","state":{"opened":true},"text":"研发二部"},{"checked":false,"children":[],"hasChildren":false,"hasParent":true,"id":"7","parentId":"6","state":{"opened":true},"text":"研發一部"}],"hasChildren":true,"hasParent":false,"id":"6","parentId":"0","state":{"opened":true},"text":"研发部"}],"hasChildren":true,"hasParent":false,"id":"-1","parentId":"","state":{"opened":true},"text":"顶级节点"}
+2018-04-10 16:34:17 -请求地址 : http://localhost/mytest/masterlist
+2018-04-10 16:34:17 -HTTP METHOD : GET
+2018-04-10 16:34:17 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.masterlist
+2018-04-10 16:34:17 -参数 : [{limit=10, offset=0, xname=}]
+2018-04-10 16:34:17 -==>  Preparing: select * from mytest order by id desc limit ?, ? 
+2018-04-10 16:34:17 -==> Parameters: 0(Integer), 10(Integer)
+2018-04-10 16:34:17 -<==      Total: 10
+2018-04-10 16:34:17 -==>  Preparing: select count(*) from mytest 
+2018-04-10 16:34:17 -==> Parameters: 
+2018-04-10 16:34:17 -<==      Total: 1
+2018-04-10 16:34:17 -耗时 : 6
+2018-04-10 16:34:17 -返回值 : com.bootdo.common.utils.PageUtils@6f70008d
+2018-04-10 16:34:19 -请求地址 : http://localhost/mytest/editmastertable/200
+2018-04-10 16:34:19 -HTTP METHOD : GET
+2018-04-10 16:34:19 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.editmastertable
+2018-04-10 16:34:19 -参数 : [{}, 200]
+2018-04-10 16:34:19 -==>  Preparing: select * from mytest where id = ? 
+2018-04-10 16:34:19 -==> Parameters: 200(Long)
+2018-04-10 16:34:19 -<==      Total: 1
+2018-04-10 16:34:19 -耗时 : 4
+2018-04-10 16:34:19 -返回值 : mytest/editmastertable2
+2018-04-10 16:34:19 -请求地址 : http://localhost/mytest/mastertablesonlist
+2018-04-10 16:34:19 -HTTP METHOD : GET
+2018-04-10 16:34:19 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertablesonlist
+2018-04-10 16:34:19 -参数 : [{limit=10, offset=0, mid=200, testInput=}, {}]
+2018-04-10 16:34:19 -==>  Preparing: select * from myclass WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:34:19 -==> Parameters: 200(String), 0(Integer), 10(Integer)
+2018-04-10 16:34:19 -<==      Total: 6
+2018-04-10 16:34:19 -==>  Preparing: select count(*) from myclass WHERE mid = ? 
+2018-04-10 16:34:19 -==> Parameters: 200(String)
+2018-04-10 16:34:19 -<==      Total: 1
+2018-04-10 16:34:19 -耗时 : 4
+2018-04-10 16:34:19 -返回值 : com.bootdo.common.utils.PageUtils@61f87833
+2018-04-10 16:34:19 -请求地址 : http://localhost/mytest/getMyteacherlist
+2018-04-10 16:34:19 -HTTP METHOD : GET
+2018-04-10 16:34:19 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.getMyteacherlist
+2018-04-10 16:34:19 -参数 : [{limit=10, offset=0, mid=200, tname=}, {}]
+2018-04-10 16:34:19 -==>  Preparing: select * from myteacher WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:34:19 -==> Parameters: 200(String), 0(Integer), 10(Integer)
+2018-04-10 16:34:19 -<==      Total: 0
+2018-04-10 16:34:19 -==>  Preparing: select count(*) from myteacher WHERE mid = ? 
+2018-04-10 16:34:19 -==> Parameters: 200(String)
+2018-04-10 16:34:19 -<==      Total: 1
+2018-04-10 16:34:19 -耗时 : 6
+2018-04-10 16:34:19 -返回值 : com.bootdo.common.utils.PageUtils@1eb223d4
+2018-04-10 16:34:44 -请求地址 : http://localhost/mytest/editmastertable/3333
+2018-04-10 16:34:44 -HTTP METHOD : GET
+2018-04-10 16:34:44 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.editmastertable
+2018-04-10 16:34:44 -参数 : [{}, 3333]
+2018-04-10 16:34:44 -==>  Preparing: select * from mytest where id = ? 
+2018-04-10 16:34:44 -==> Parameters: 3333(Long)
+2018-04-10 16:34:44 -<==      Total: 1
+2018-04-10 16:34:45 -耗时 : 3
+2018-04-10 16:34:45 -返回值 : mytest/editmastertable2
+2018-04-10 16:34:45 -请求地址 : http://localhost/mytest/mastertablesonlist
+2018-04-10 16:34:45 -HTTP METHOD : GET
+2018-04-10 16:34:45 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertablesonlist
+2018-04-10 16:34:45 -参数 : [{limit=10, offset=0, mid=3333, testInput=}, {}]
+2018-04-10 16:34:45 -==>  Preparing: select * from myclass WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:34:45 -==> Parameters: 3333(String), 0(Integer), 10(Integer)
+2018-04-10 16:34:45 -<==      Total: 1
+2018-04-10 16:34:45 -==>  Preparing: select count(*) from myclass WHERE mid = ? 
+2018-04-10 16:34:45 -==> Parameters: 3333(String)
+2018-04-10 16:34:45 -<==      Total: 1
+2018-04-10 16:34:45 -耗时 : 4
+2018-04-10 16:34:45 -返回值 : com.bootdo.common.utils.PageUtils@24030835
+2018-04-10 16:34:45 -请求地址 : http://localhost/mytest/getMyteacherlist
+2018-04-10 16:34:45 -HTTP METHOD : GET
+2018-04-10 16:34:45 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.getMyteacherlist
+2018-04-10 16:34:45 -参数 : [{limit=10, offset=0, mid=3333, tname=}, {}]
+2018-04-10 16:34:45 -==>  Preparing: select * from myteacher WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:34:45 -==> Parameters: 3333(String), 0(Integer), 10(Integer)
+2018-04-10 16:34:45 -<==      Total: 0
+2018-04-10 16:34:45 -==>  Preparing: select count(*) from myteacher WHERE mid = ? 
+2018-04-10 16:34:45 -==> Parameters: 3333(String)
+2018-04-10 16:34:45 -<==      Total: 1
+2018-04-10 16:34:45 -耗时 : 4
+2018-04-10 16:34:45 -返回值 : com.bootdo.common.utils.PageUtils@143fcdd7
+2018-04-10 16:35:17 -请求地址 : http://localhost/mytest/editmassnewtable
+2018-04-10 16:35:17 -HTTP METHOD : POST
+2018-04-10 16:35:17 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.editmassnewtable
+2018-04-10 16:35:17 -参数 : [MyTest{id=3333, xname='333', age='3333', deptId=12, deptName='产品一部', mclass=[{"id":42,"testInput":"333","testSort":"","testTextarea":"","testSelect":"","testSelectMultiple":"","testRadio":"","testCheckbox":"","testDate":"2018-04-02","mid":3333,"tid":0}], map={}}]
+2018-04-10 16:35:17 -==>  Preparing: update mytest SET `xname` = ?, `age` = ? where id = ? 
+2018-04-10 16:35:17 -==> Parameters: 333(String), 3333(String), 3333(Integer)
+2018-04-10 16:35:17 -<==    Updates: 1
+2018-04-10 16:35:17 -==>  Preparing: insert into myteacher(`tname`,`tage`,`tsex`,`tstartdate`,`tenddate`,`mid`) values ( ?, ?, ?, ?, ?, ? ) 
+2018-04-10 16:35:17 -==> Parameters: 32(String), 2018-05-03 00:00:00.0(Timestamp), 1(String), 2018-05-01 00:00:00.0(Timestamp), 2018-04-23 00:00:00.0(Timestamp), 3333(Integer)
+2018-04-10 16:35:17 -<==    Updates: 1
+2018-04-10 16:35:17 -耗时 : 31
+2018-04-10 16:35:17 -返回值 : {msg=操作成功, code=0}
+2018-04-10 16:35:17 -请求地址 : http://localhost/mytest/mastertablesonlist
+2018-04-10 16:35:17 -请求地址 : http://localhost/mytest/masterlist
+2018-04-10 16:35:17 -HTTP METHOD : GET
+2018-04-10 16:35:17 -HTTP METHOD : GET
+2018-04-10 16:35:17 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertablesonlist
+2018-04-10 16:35:17 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.masterlist
+2018-04-10 16:35:17 -参数 : [{limit=10, offset=0, mid=3333, testInput=}, {}]
+2018-04-10 16:35:17 -参数 : [{limit=10, offset=0, xname=}]
+2018-04-10 16:35:17 -请求地址 : http://localhost/mytest/getMyteacherlist
+2018-04-10 16:35:17 -HTTP METHOD : GET
+2018-04-10 16:35:17 -==>  Preparing: select * from mytest order by id desc limit ?, ? 
+2018-04-10 16:35:17 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.getMyteacherlist
+2018-04-10 16:35:17 -参数 : [{limit=10, offset=0, mid=3333, tname=}, {}]
+2018-04-10 16:35:17 -==> Parameters: 0(Integer), 10(Integer)
+2018-04-10 16:35:17 -<==      Total: 10
+2018-04-10 16:35:17 -==>  Preparing: select * from myclass WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:35:17 -==> Parameters: 3333(String), 0(Integer), 10(Integer)
+2018-04-10 16:35:17 -<==      Total: 1
+2018-04-10 16:35:17 -==>  Preparing: select * from myteacher WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:35:17 -==> Parameters: 3333(String), 0(Integer), 10(Integer)
+2018-04-10 16:35:17 -<==      Total: 1
+2018-04-10 16:35:17 -==>  Preparing: select count(*) from mytest 
+2018-04-10 16:35:17 -==> Parameters: 
+2018-04-10 16:35:17 -<==      Total: 1
+2018-04-10 16:35:17 -耗时 : 10
+2018-04-10 16:35:17 -==>  Preparing: select count(*) from myclass WHERE mid = ? 
+2018-04-10 16:35:17 -返回值 : com.bootdo.common.utils.PageUtils@64c5dd04
+2018-04-10 16:35:17 -==> Parameters: 3333(String)
+2018-04-10 16:35:17 -<==      Total: 1
+2018-04-10 16:35:17 -耗时 : 12
+2018-04-10 16:35:17 -==>  Preparing: select count(*) from myteacher WHERE mid = ? 
+2018-04-10 16:35:17 -返回值 : com.bootdo.common.utils.PageUtils@3c3febdc
+2018-04-10 16:35:17 -==> Parameters: 3333(String)
+2018-04-10 16:35:17 -<==      Total: 1
+2018-04-10 16:35:17 -耗时 : 13
+2018-04-10 16:35:17 -返回值 : com.bootdo.common.utils.PageUtils@554320c3
+2018-04-10 16:36:38 -请求地址 : http://localhost/mytest/editmastertable/3334
+2018-04-10 16:36:38 -HTTP METHOD : GET
+2018-04-10 16:36:38 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.editmastertable
+2018-04-10 16:36:38 -参数 : [{}, 3334]
+2018-04-10 16:36:38 -==>  Preparing: select * from mytest where id = ? 
+2018-04-10 16:36:38 -==> Parameters: 3334(Long)
+2018-04-10 16:36:38 -<==      Total: 1
+2018-04-10 16:36:38 -耗时 : 3
+2018-04-10 16:36:38 -返回值 : mytest/editmastertable2
+2018-04-10 16:36:38 -请求地址 : http://localhost/mytest/mastertablesonlist
+2018-04-10 16:36:38 -HTTP METHOD : GET
+2018-04-10 16:36:38 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.mastertablesonlist
+2018-04-10 16:36:38 -参数 : [{limit=10, offset=0, mid=3334, testInput=}, {}]
+2018-04-10 16:36:38 -==>  Preparing: select * from myclass WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:36:38 -==> Parameters: 3334(String), 0(Integer), 10(Integer)
+2018-04-10 16:36:38 -<==      Total: 2
+2018-04-10 16:36:38 -==>  Preparing: select count(*) from myclass WHERE mid = ? 
+2018-04-10 16:36:38 -==> Parameters: 3334(String)
+2018-04-10 16:36:38 -<==      Total: 1
+2018-04-10 16:36:38 -耗时 : 9
+2018-04-10 16:36:38 -返回值 : com.bootdo.common.utils.PageUtils@7e9d25fa
+2018-04-10 16:36:38 -请求地址 : http://localhost/mytest/getMyteacherlist
+2018-04-10 16:36:38 -HTTP METHOD : GET
+2018-04-10 16:36:38 -CLASS_METHOD : com.bootdo.mytest.controller.MyTestController.getMyteacherlist
+2018-04-10 16:36:38 -参数 : [{limit=10, offset=0, mid=3334, tname=}, {}]
+2018-04-10 16:36:38 -==>  Preparing: select * from myteacher WHERE mid = ? order by id desc limit ?, ? 
+2018-04-10 16:36:38 -==> Parameters: 3334(String), 0(Integer), 10(Integer)
+2018-04-10 16:36:38 -<==      Total: 2
+2018-04-10 16:36:38 -==>  Preparing: select count(*) from myteacher WHERE mid = ? 
+2018-04-10 16:36:38 -==> Parameters: 3334(String)
+2018-04-10 16:36:38 -<==      Total: 1
+2018-04-10 16:36:38 -耗时 : 6
+2018-04-10 16:36:38 -返回值 : com.bootdo.common.utils.PageUtils@55a4f311

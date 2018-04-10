@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="ibox">
+                <form id="inputForm" action="/mytest/addnewtable" method="post" class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-unit">基本信息</div>
+                        <input type="hidden" id="mclass" name="mclass"/>
+                        <input type="hidden" id="map" name="map"/>
+                        <input type="hidden" id="myteacher" name="myteacher"/>
+                        <input type="hidden" id="tmap" name="tmap"/>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">ID：</label>
+                                    <div class="col-sm-8">
+                                        <input id="id" th:value="${mt.id}" name="id" class="form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">名称：</label>
+                                    <div class="col-sm-8">
+                                        <input id="xname" th:value="${mt.xname}" name="xname" class="form-control"
+                                               type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">年龄：</label>
+                                    <div class="col-sm-8">
+                                        <input id="age" name="age" th:value="${mt.age}" class="form-control"
+                                               type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" title="">
+                                        <span class="required hide">*</span> 用户选择：<i class="fa icon-question hide"></i></label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group treeselect" id="testUserDiv" data-url="/system/sysDept/treeViewLayer">
+                                            <input id="deptId" name="deptId" class="hidden" th:value="${mt.deptId}"> <input
+                                                id="deptName" name="deptName" th:value="${mt.deptName}" class="form-control" type="text"
+                                                style="cursor: pointer;" onclick="openDept()"
+                                                readonly="readonly" placeholder="所属部门">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#table1" data-toggle="tab">
+                            子表1
+                        </a>
+                    </li>
+                    <li><a href="#table2" data-toggle="tab">
+                        子表2
+                    </a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="table1">
+                        <button type="button" class="btn btn-success dropdown-toggle" onclick="addtable()">
+                            <span class="glyphicon glyphicon  glyphicon-plus" aria-hidden="true"></span>增加
+                        </button>
+                        <div class="columns pull-right">
+                            <button class="btn btn-success" onclick="reLoad()">查询</button>
+                        </div>
+
+                        <div class="columns pull-right col-md-2 nopadding">
+                            <input id="searchName" type="text" class="form-control"
+                                   placeholder="文本">
+                        </div>
+                        <table id="exampleTable">
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="table2">
+                        <button type="button" class="btn btn-success dropdown-toggle" onclick="addtable1()">
+                            <span class="glyphicon glyphicon  glyphicon-plus" aria-hidden="true"></span>增加
+                        </button>
+                        <div class="columns pull-right">
+                            <button class="btn btn-success" onclick="reLoad1()">查询</button>
+                        </div>
+
+                        <div class="columns pull-right col-md-2 nopadding">
+                            <input id="searchName1" type="text" class="form-control"
+                                   placeholder="姓名">
+                        </div>
+                        <table id="exampleTable1">
+                        </table>
+                    </div>
+                </div>
+                <div class="columns pull-right">
+                    <button class="btn btn-success" onclick="submittable()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include :: footer"></div>
+<script type="text/javascript">
+    var map={};
+    var map1={};
+    var tid=1;
+    var tid1=1;
+    var openDept = function(){
+        layer.open({
+            type:2,
+            title:"选择部门",
+            area : [ '300px', '450px' ],
+            content:"/system/sysDept/treeView"
+        })
+    }
+    function loadDept( deptId,deptName){
+        $("#deptId").val(deptId);
+        $("#deptName").val(deptName);
+    }
+    function submittable() {
+        var data = $('#exampleTable').bootstrapTable('getData');
+        $('#mclass').val(JSON.stringify(data));
+        $('#map').val(JSON.stringify(map));
+        var data1 = $('#exampleTable1').bootstrapTable('getData');
+        $('#myteacher').val(JSON.stringify(data1));
+        $('#tmap').val(JSON.stringify(map1));
+        $.ajax({
+            url : "/mytest/editmassnewtable",
+            type : "post",
+            data : $('#inputForm').serialize(),
+            success : function(r) {
+                if (r.code == 0) {
+                    layer.msg(r.msg);
+                } else {
+                    layer.msg(r.msg);
+                }
+                parent.reLoad();
+                reLoad();
+                reLoad1();
+            }
+        });
+    }
+    //删除指定行
+    function removeRow(tid,id){
+        if(tid=="0"){
+            layer.confirm('确定要删除该数据吗？', {
+                btn : [ '确定', '取消' ]
+            }, function() {
+                $.ajax({
+                    url : "/mytest/removeTable1",
+                    type : "post",
+                    data : {
+                        'id' : id
+                    },
+                    success : function(r) {
+                        if (r.code == 0) {
+                            layer.msg(r.msg);
+                        } else {
+                            layer.msg(r.msg);
+                        }
+                        parent.reLoad();
+                        reLoad();
+                    }
+                });
+            })
+        }else{
+            $('#exampleTable').bootstrapTable('remove', {
+                field : 'tid',
+                values:[parseInt(tid)]
+            });
+        }
+    }
+
+    function reLoad() {
+        $('#exampleTable').bootstrapTable('refresh');
+    }
+    function reLoad1() {
+        $('#exampleTable1').bootstrapTable('refresh');
+    }
+    $(function() {
+        $.fn.editable.defaults.mode ='inline';
+        load();
+        load1();
+        $('#exampleTable').bootstrapTable('hideColumn', 'tid');
+        $('#exampleTable1').bootstrapTable('hideColumn', 'tid');
+    });
+
+    //增加行数
+    function addtable() {
+        var data={tid:tid,testInput:'',testSort:'',testSelect:'1',testDate:""}
+        $('#exampleTable').bootstrapTable('append',data);
+        tid++;
+    }
+    function addmap(tid,id) {
+        if(tid=="0"){
+            map[id]=String(id);
+        }
+    }
+    //更改值后更新数据
+    function reloadRowData(obj, row,tid,id, key, index){
+        row[key] = obj.val();
+        $('#exampleTable').bootstrapTable('updateRow', {
+            index: index,
+            row:row
+        });
+        addmap(tid,id);
+    }
+    //对文本字段的处理
+    function ftext(value,row,index,key){
+        if(typeof(value) == "undefined") {
+            value = "";
+        }
+        return "<input type=\"text\" class=\"form-control\" value=\"" + value + "\" onchange='reloadRowData($(this), " + JSON.stringify(row)+ "," + row.tid + ", " + row.id + ",\"" + key + "\", " + index + ")' />";
+    }
+    //对日期字段的处理
+    function fdate(value,row,index,key) {
+        if(typeof(value) == "undefined") {
+            value = "";
+        }
+        var s="<div class='input-group date'>"+
+            "<input type=\"text\" class=\"form-control\" value=\"" + value + "\" onchange='reloadRowData($(this), " + JSON.stringify(row)+"," + row.tid + ", " + row.id  + ", \"" + key + "\", " + index + ")' onfocus='wd()'/>"+
+            "<span class=\"input-group-addon\">"+
+            "<span class=\"glyphicon glyphicon-calendar\"></span></span></div>"
+        return s;
+    }
+    //日期插件
+    function wd(){
+        WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false});
+    }
+    function load() {
+        $('#exampleTable').bootstrapTable(
+            {
+                method : 'get', // 服务器数据的请求方式 get or post
+                url : "/mytest/mastertablesonlist", // /服务器数据的加载地址
+                striped : true, // 设置为true会有隔行变色效果
+                dataType : "json", // 服务器返回的数据类型
+                singleSelect : false, // 设置为true将禁止多选
+                pageSize : 10, // 如果设置了分页，每页数据条数
+                pageNumber : 1, // 如果设置了分布，首页页码
+                sidePagination : "server", // 设置在哪里进行分页
+                pagination : true, // 设置为true会在底部显示分页条
+                queryParams : function(params) {
+                    return {
+                        limit : params.limit,
+                        offset : params.offset,
+                        mid:$("#id").val(),
+                        testInput : $('#searchName').val(),
+                    };
+                },
+                //保存的使用
+                onEditableSave: function (field, row, index) {
+                    $('#exampleTable').bootstrapTable('updateRow', {
+                        index: index,
+                        row:row
+                    });
+                    addmap(row.tid,row.id);
+                },
+                columns : [
+                    {
+                        field : 'tid', // 列字段名
+                        title : '#', // 列标题
+                    },
+                    {
+                        field : 'id', // 列字段名
+                        title : '序号', // 列标题
+                    },
+                    {
+                        field: 'testInput',
+                        title: '文本',
+                        align: 'center',
+                        sortable:true,
+                        formatter:ftext
+                    }, {
+                        field: 'testSort',
+                        title: '排序',
+                        align: 'center',
+                        formatter:ftext
+                    },
+                    {
+                        field: 'testSelect',
+                        title: '单选',
+                        align: 'center',
+                        editable: {
+                            type: 'select',
+                            showbuttons: false,
+                            source: [
+                                {value: 1, text: '男'},
+                                {value: 2, text: '女'},
+                            ],
+                            formatter: function (value,row,index) {
+                                var result={filed:"sex",value:value,class:"badge",style:"background:#333;padding:5px 10px;"};
+                                return result;
+                            }
+                        }
+                    }
+                    ,
+                    {
+                        field: 'testDate',
+                        title: '时间',
+                        align: 'center',
+                        formatter:fdate
+                    },
+                    {
+                        title : '操作',
+                        field : 'id',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            var d = '<a class="btn btn-warning btn-sm" href="#" title="删除"  mce_href="#" onclick="removeRow(\''+ row.tid+'\',\''+ row.id+'\')"><i class="fa fa-remove"></i></a> ';
+                            return d;
+                        }
+                    } ]
+            });
+    }
+    //删除指定行
+    function removeRow1(tid,id){
+        if(tid=="0"){
+            //删除后台数据
+            layer.confirm('确定要删除该数据吗？', {
+                btn : [ '确定', '取消' ]
+            }, function() {
+                $.ajax({
+                    url: "/mytest/removeTable2",
+                    type: "post",
+                    data: {
+                        'id': id
+                    },
+                    success: function (r) {
+                        if (r.code == 0) {
+                            layer.msg(r.msg);
+                        } else {
+                            layer.msg(r.msg);
+                        }
+                        parent.reLoad();
+                        reLoad();
+                    }
+                });
+            })
+        }else{
+            $('#exampleTable1').bootstrapTable('remove', {
+                field : 'tid',
+                values:[parseInt(tid)]
+            });
+        }
+    }
+
+
+    //增加行数
+    function addtable1() {
+        var data={tid:tid1,tname:'',tage:'',tsex:'1',tstartdate:'',tenddate:""}
+        $('#exampleTable1').bootstrapTable('append',data);
+        tid1++;
+    }
+    function addtmap(tid,id) {
+        if(tid=="0"){
+            map1[id]=String(id);
+        }
+    }
+    //更改值后更新数据
+    function reloadRowData1(obj, row,tid,id, key, index){
+        row[key] = obj.val();
+        $('#exampleTable1').bootstrapTable('updateRow', {
+            index: index,
+            row:row
+        });
+        addtmap(tid,id);
+    }
+    //对文本字段的处理
+    function ftext1(value,row,index,key){
+        if(typeof(value) == "undefined") {
+            value = "";
+        }
+        return "<input type=\"text\" class=\"form-control\" value=\"" + value + "\" onchange='reloadRowData1($(this), " + JSON.stringify(row)+ "," + row.tid + ", " + row.id + ",\"" + key + "\", " + index + ")' />";
+    }
+    //对日期字段的处理
+    function fdate1(value,row,index,key) {
+        if(typeof(value) == "undefined") {
+            value = "";
+        }
+        var s="<div class='input-group date'>"+
+            "<input type=\"text\" class=\"form-control\" value=\"" + value + "\" onchange='reloadRowData1($(this), " + JSON.stringify(row)+"," + row.tid + ", " + row.id  + ", \"" + key + "\", " + index + ")' onfocus='wd()'/>"+
+            "<span class=\"input-group-addon\">"+
+            "<span class=\"glyphicon glyphicon-calendar\"></span></span></div>"
+        return s;
+    }
+    function load1() {
+        $('#exampleTable1').bootstrapTable(
+            {
+                method : 'get', // 服务器数据的请求方式 get or post
+                url : "/mytest/getMyteacherlist", // /服务器数据的加载地址
+                striped : true, // 设置为true会有隔行变色效果
+                dataType : "json", // 服务器返回的数据类型
+                singleSelect : false, // 设置为true将禁止多选
+                pageSize : 10, // 如果设置了分页，每页数据条数
+                pageNumber : 1, // 如果设置了分布，首页页码
+                sidePagination : "server", // 设置在哪里进行分页
+                pagination : true, // 设置为true会在底部显示分页条
+                queryParams : function(params) {
+                    return {
+                        limit : params.limit,
+                        offset : params.offset,
+                        mid:$("#id").val(),
+                        tname : $('#searchName1').val(),
+                    };
+                },
+                //保存的使用
+                onEditableSave: function(value,row,index) {
+                    $('#exampleTable1').bootstrapTable('updateRow', {
+                        index: index,
+                        row:row
+                    });
+                    addtmap(row.tid,row.id);
+                },
+                columns: [
+                    {
+                        field : 'tid', // 列字段名
+                        title : '#', // 列标题
+                    },
+                    {
+                        field : 'id', // 列字段名
+                        title : '序号', // 列标题
+                    },
+                    {
+                        field: 'tname',
+                        title: '姓名',
+                        align: 'center',
+                        sortable:true,
+                        formatter:ftext1
+                    }, {
+                        field: 'tage',
+                        title: '出生年月',
+                        align: 'center',
+                        formatter:fdate1
+                    },
+                    {
+                        field: 'tsex',
+                        title: '性别',
+                        align: 'center',
+                        editable: {
+                            type: 'select',
+                            showbuttons: false,
+                            source: [
+                                {value: 1, text: '男'},
+                                {value: 2, text: '女'},
+                            ],
+                            formatter: function (value,row,index) {
+                                var result={filed:"sex",value:value,class:"badge",style:"background:#333;padding:5px 10px;"};
+                                return result;
+                            }
+                        }
+
+                    }
+                    ,
+                    {
+                        field: 'tstartdate',
+                        title: '开始时间',
+                        align: 'center',
+                        formatter:fdate1
+
+                    },
+                    {
+                        field: 'tenddate',
+                        title: '结束时间',
+                        align: 'center',
+                        formatter:fdate1
+
+                    },
+                    {
+                        title : '操作',
+                        field : 'id',
+                        align : 'center',
+                        formatter : function(value, row, index) {
+                            var d = '<a class="btn btn-warning btn-sm" href="#" title="删除"  mce_href="#" onclick="removeRow1(\''+ row.tid+'\',\''+ row.id+'\')"><i class="fa fa-remove"></i></a> ';
+                            return d;
+                        }
+                    } ]
+            });
+    }
+</script>
+</body>
+</html>

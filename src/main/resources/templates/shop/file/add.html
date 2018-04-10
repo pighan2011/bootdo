@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head >
+    <link href="/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body class="gray-bg">
+
+<div class="container kv-main">
+    <div class="page-header">
+        <hr>
+        <!--<h4>文件上传</h4>-->
+        <form enctype="multipart/form-data">
+            <label></label>
+            <input id="file-fr" name="file" type="file" multiple>
+        </form>
+        <hr>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript">
+    $('#file-fr').fileinput({
+        language: 'zh',
+        uploadUrl: '/shop/file/batch/upload',
+        // allowedFileExtensions : ['jpg', 'png','gif'],
+    }).on("fileuploaded", function (e,data) {
+        //console.log(data)
+       // parent.reLoad();
+    });
+    //$(document).ready(function() {
+    //    $("#test-upload").fileinput({
+    //        'showPreview' : false,
+    //        //'allowedFileExtensions' : ['jpg', 'png','gif'],
+    //        'elErrorContainer': '#errorBlock'
+    //    });
+    //});
+    // var index=parent.layer.getFrameIndex(window.name);
+    // parent.closelayerandreload(index);
+</script>
+</body>
+</html>
